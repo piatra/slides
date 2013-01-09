@@ -1,0 +1,30 @@
+<!doctype html public "✰">
+<head>
+	<title>getusermedia demo</title>
+	<style type="text/css">
+		#container {
+			width:80%;
+			margin:5% auto;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="container">
+		<h2>get usermedia demo</h2>
+		<video width="500" autoplay></video>
+
+	</div>
+
+</body>
+
+<script>
+navigator.webkitGetUserMedia({video:true}, function(localStream){
+	var v = document.querySelector('video');
+	v.src = window.webkitURL.createObjectURL(localStream);
+}, function(){
+	alert('UserMedia not supported');
+})
+</script>
+
+</html>

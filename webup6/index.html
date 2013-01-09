@@ -1,0 +1,342 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Bleeding edge HTML5</title>
+
+		<meta name="description" content="Bleeding edge HTML5">
+		<meta name="author" content="Andrei Oprea">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		 <link href='http://fonts.googleapis.com/css?family=Signika:400,600,700,300' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+
+		<link rel="stylesheet" href="lib/zenburn.css">
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Bleeding edge HTML5</h1>
+					<img src="./html5_logobloody.png" class="logo">
+					<h4>Adobe WebUp#6 . june 28 . Andrei Oprea</h4>
+					<h4>* not safe for most browsers</h4>
+				</section>
+				<section tagcloud>
+					<h1>the new and shiny</h1>
+					localstorage
+					notifications
+					web workers
+					web sockets
+					video tag
+					audio tag
+					File API
+					drag and drop
+					data-* attributes
+					app cache
+					cors
+					WebGL
+					history state
+					semantic markup
+					SVG
+					Fullscreen API
+					pointerlock API
+					getUserMedia
+					Blob
+					requestAnimationFrame
+					ArrayBuffer
+					battery status
+					orientation API
+					websockets
+				</section>
+				<section>
+					<h1>Web applications</h1>
+					<ul>
+						<li><h3>Huge improvements over the last few years</h3></li>
+						<li><h3>Code abstraction</h3></li>
+						<li><h3>Code once, runs "everywhere" <small class="fragment">*not really</small></h3></li>
+						<li><h3>No installation</h3></li>
+						<li><h3>Always at the latest version</h3></li>
+						<li><h3>Easy to reach the user</h3></li>
+					</ul>
+				</section>
+				<section>
+					<h1>I will be talking about</h1>
+					<small>APIs that (will) make the web a better place</small>
+					<p>
+						<p><b>getUserMedia</b> - access camera and microphone</p>
+						<p class="fragment"><b>filesystem apis</b> - create, read, navigate, and write to a sandboxed section of the user's local file system</p>
+						<p class="fragment">
+							<b>indexDB</b> - web databases are hosted and persisted inside a user's browser
+						</p>
+						<p class="fragment">
+							<b>server-sent events</b> - pushing data from the server to your web app
+						</p>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h1>Problem ?</h1>
+						<h4 class="fragment">Browser support not that good :(</h4>
+						<p class="fragment"><img width="200px" src="troll-explorer.png"></p>
+						<h2 class="fragment">Solution ?</h2>
+					</section>
+					<section>
+						<h3><a target=_blank href="http://html5please.com">html5please.com</a></h3>
+						<p>Use the new and shiny responsibly.</p>
+						<img class="large" src="./html5please.png">
+					</section>
+					<section>
+						<h3><a target=_blank href="http://caniuse.com">caniuse.com</a></h3>
+						<p>Compatibility tables for support of HTML5, CSS3, SVG and more in desktop and mobile browsers.</p>
+						<img class="large" src="caniuse.png">
+					</section>
+					<section>
+						<h3>Retailer announces "IE7 tax"</h3>
+						<p><img width=500 src="ie7tax.jpg"></p>
+					</section>
+					<section>
+						<h1>polyfills</h1>
+						<blockquote>A polyfill, or polyfiller, is a piece of code (or plugin) that provides the technology that you, the developer, expect the browser to provide natively.</blockquote>
+						<h1>progressive enhancement</h1>
+						<blockquote>Progressive enhancement focuses on the content. </blockquote>
+					</section>
+				</section>
+				<section>
+					<h1>getUserMedia</h1>
+					<section>
+						
+						<li><code><a target=_blank href="http://caniuse.com/#feat=stream">getUserMedia</a></code> is an API that gives a web page access to a user’s camera and microphone via JavaScript</li>
+						<small>augmented reality anyone?</small>
+						<li>Can be tested in Chrome (21) , Opera (12) and Firefox (??)</li>
+						<li>Made possible with the help of the WebRTC, spec overseen by the W3C</li>
+						<li>https://github.com/addyosmani/getUserMedia.js</li>
+						<li><a href="https://gist.github.com/f2ac64ed7fc467ccdfe3">the gUM shield</a></li>
+					</section>
+					<section>
+						<ul>
+						<li>1. live coding!</li>
+						<li>2. taking it a step further with <a target=_blank href="http://html5-demos.appspot.com/static/css/filters/index.html">css filters</a>, <a href="http://www.raymondcamden.com/demos/2012/mar/29/test1.html"> smile </a></li>
+						<li><a href="http://50.116.28.105/">you laugh you lose</a></li>
+						</ul>
+						<p>
+							<h2>resources</h2>
+							<ul>
+								<li><a href="http://jeromeetienne.github.com/augmentedgesture.js/">augmentedgesture.js</a></li>
+								<li><a href="https://github.com/kig/JSARToolKit/">JSARTollKit</a></li>
+								<li><a href="https://github.com/mrdoob/three.js/">three.js</a> 3D library for dummies</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<h1>FileSystem api</h1>
+					<section>
+					<p>
+					<h3>it has a lot of apis</h3>
+					File/Blob,
+					Filelist,
+					FileReader,
+					FileWriter,
+					you get the point..
+					</p>
+					<ul>
+						<h3>how it works</h3>
+						<li>sandbox environment</li>
+						<li>not on the actual hardrive</li>
+						<li>one app : one filesystem </li>
+						<li>asynchronous and synchronous</li>
+						<li>new URL scheme, <em>filesystem:</em></li>
+					</ul>
+					</section>
+					<section>
+						<h2>Perfect for (any) web applications</h2>
+						<p>FileFormat.js a work in progress</p>
+						<p><a href="https://github.com/h5bp/lazyweb-requests/issues/79">LazyWeb Request #79</a></p>
+						<pre><code>var css = new FileFormat( { type: 'text/css' } );
+
+png.convert( { type: 'image/jpeg' } );
+
+mp3.trim( { 'start' : '0:0:13', 'end' : '0:1:25' } )</code></pre>
+					<p>Want to work with mp3, H.264, images (even PSD) ? There probably is a <a target="_blank" href="https://github.com/bebraw/jswiki/wiki/File-Formats">library </a> for that</p>
+					</section>
+					<section>
+						<h2>What can it do</h2>
+						<ul>
+							<li>
+									Offline apps (for content)
+									<ul>
+										<li>Mail client for Gmail</li>
+										<li>Video recorder</li>
+										<li><a target=_blank href="http://www.htmlfivewow.com/demos/terminal/terminal.html">HTML5 terminal</a></li>
+									</ul>
+							</li>
+							<li>Persistent uploader (breaking content into chunks)
+								<ul>
+									<li>Demo</li>
+								</ul>	
+							</li>
+
+							<li>Games!</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h1>indexedDB</h1>
+					<section>
+						<blockquote>IndexedDB is an API for client-side storage of significant amounts of structured data and for high performance searches on this data using indexes.</blockquote>
+					<li>It's asynchronous</li>
+					<li>Alternative to WebSQL which the W3C deprecated</li>
+					<li>IndexDB databases store key-value pairs in an Object Store</li>
+					<li>Object oriented, more similar to NoSQL (not to relational database)</li>
+					</section>
+					<section>
+					<h2>PouchDB</h2>
+					<blockquote>PouchDB is a JavaScript library that allows you to store and query data for web applications that need to work offline, and sync with an online database when you are online.</blockquote>
+					<p>Alpha version | Firefox 12+ Chrome 19+</p>
+					<li><a href="https://github.com/axemclion/IndexedDBShim">IndexedDBShim</a></li>
+					</section>
+				</section>
+				<section>
+						<h1>server-sent events</h1>
+					<section>
+						<h6>aka SSE aka EventSource</h6>
+						<blockquote>Server-Sent Events are real-time events emitted by the server and received by the browser. They’re similar to WebSockets in that they happen in real time, but they’re very much a one-way communication method from the server.</blockquote>
+						
+						<li>Real-time news coverage</li>
+						<li>Live Twitter wall feed</li>
+						<li>Monitor for server statistics</li>
+					</section>
+					<section>
+						<h2>properties / advantages</h2>
+						<ul>
+							<li>read-only stream from server no HTTP overhead <small>aka polling</small> no Hanging GET <small>aka long-polling</small></li>
+							<li>can be inplemented in php/nodejs/python/etc</li>
+							<li>uses regular HTTP requests, server pushes data to your app when it has something to say</li>
+							<li>if connection drops it automatically tries to reconnect</li>
+							<li>uses id's so you can maintain a history of messages</li>
+							
+							<li>can haz pollyfills ? <a href="https://github.com/Yaffle/EventSource">yaffle sse</a> <a href="https://github.com/remy/polyfills/blob/master/EventSource.js"o>remy sse</a> (works in IE7)</li>
+						</ul>
+					</section>
+					<section>
+						<pre><code>var source = new EventSource('/my/sse_endpoint');
+
+source.addEventListener('open', connectionOpened, false);
+
+source.addEventListener('error', connectionErr, false);
+</code></pre>
+<pre><code>
+ res.writeHead(200, {
+        'content-type': 'text/event-stream',
+        'cache-control': 'no-cache',
+        'connection': 'keep-alive'
+});
+	</code></pre>
+					<h2><a target=_blank href="http://node.remysharp.com:8004/"> server load </a></h2>
+					</section>
+				</section>
+				<section>
+					<h1>Thank you!</h1>
+					<br>
+					<br>
+					<h1>Questions?</h1>
+					<br>
+					<br>
+					<p>@an_rei</p>
+					<p><a href="http://db.tt/YWZFMh4T">http://db.tt/YWZFMh4T</a></p>
+				</section>
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+		<script src="lib/highlight.js"></script>
+		<script src="lib/classList.js"></script>
+		
+		<script src="js/reveal.js"></script>
+		
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			// Fires when a slide with data-state=customevent is activated
+			Reveal.addEventListener( 'customevent', function() {
+				alert( '"customevent" has fired' );
+			} );
+
+			// Fires each time a new slide is activated
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				// event.indexh & event.indexv
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Loops the presentation, defaults to false
+				loop: false,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+
+			// tagcloud
+			[].forEach.call( document.querySelectorAll('[tagcloud]'), function(cloud){
+			    cloud.innerHTML = '<span class="clouditem">' + cloud.innerHTML.split(/\n/).join('</span> <span class="clouditem">') + '</span>';
+			    [].forEach.call( cloud.querySelectorAll('span'), function(elem){
+			        var prctnge = Math.random() * 100 + 140;
+			        elem.style.fontSize = prctnge + '%';
+			        elem.style.margin = '15px 0';
+			        elem.style.color = 'hsl('+ Math.random()*360 +', 40%, 50%)'
+			    });
+			});
+		</script>
+
+	</body>
+</html>
