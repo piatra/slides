@@ -1,4 +1,4 @@
-var io = require('engine.io-client')('ws://andreio.net:3000')
+var io = require('engine.io-client')
 var container = require('container-el')
 var socket = new io.Socket()
 
@@ -8,4 +8,3 @@ socket.onmessage = function (data) {
   container.appendChild(el)
 }
 
-socket.send('beep')

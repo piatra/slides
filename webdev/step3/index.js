@@ -2,6 +2,7 @@ var express = require('express')
 var app = express()
 var server = require('http').createServer(app).listen(3000)
 var browserify = require('browserify')
+var io = require('engine.io').attach(server)
 
 app.get('/', function (req, res) {
 
@@ -17,14 +18,13 @@ app.get('/bundle.js', function (req, res) {
 
 })
 
-var io = require('engine.io').attach(server)
 
 io.on('connection', function (socket) {
   
   socket.send('Welcome')
 
   socket.on('message', function (msg) {
-    socket.send(msg.toUpperCase())
+    socket.send(msg.replace(/[aeiou]{2,}/, 'oo').toUpperCase())
   })
 
 })
