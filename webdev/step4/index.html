@@ -5,4 +5,7 @@
     console.log(data);
     socket.emit('my other event', { my: 'data' });
   });
+  socket.on('broadcast', function (data) {
+  	console.log('got ',data);
+  })
 </script>
